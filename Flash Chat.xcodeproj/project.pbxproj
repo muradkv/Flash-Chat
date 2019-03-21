@@ -54,14 +54,46 @@
 		FA3B186B224412A100ABF76D /* Flash Chat */ = {
 			isa = PBXGroup;
 			children = (
-				FA3B186C224412A100ABF76D /* AppDelegate.swift */,
-				FA3B186E224412A100ABF76D /* ViewController.swift */,
-				FA3B1870224412A100ABF76D /* Main.storyboard */,
-				FA3B1873224412A300ABF76D /* Assets.xcassets */,
-				FA3B1875224412A300ABF76D /* LaunchScreen.storyboard */,
-				FA3B1878224412A300ABF76D /* Info.plist */,
+				FA3B187E224413A000ABF76D /* Model */,
+				FA3B187F224413A500ABF76D /* View */,
+				FA3B1880224413AA00ABF76D /* Controller */,
+				FA3B1881224413F200ABF76D /* Supporting Files */,
 			);
 			path = "Flash Chat";
+			sourceTree = "<group>";
+		};
+		FA3B187E224413A000ABF76D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA3B187F224413A500ABF76D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B1870224412A100ABF76D /* Main.storyboard */,
+				FA3B1875224412A300ABF76D /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA3B1880224413AA00ABF76D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B186C224412A100ABF76D /* AppDelegate.swift */,
+				FA3B186E224412A100ABF76D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA3B1881224413F200ABF76D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B1873224412A300ABF76D /* Assets.xcassets */,
+				FA3B1878224412A300ABF76D /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6D3DZE2WM;
-				INFOPLIST_FILE = "Flash Chat/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Flash Chat/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6D3DZE2WM;
-				INFOPLIST_FILE = "Flash Chat/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Flash Chat/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
