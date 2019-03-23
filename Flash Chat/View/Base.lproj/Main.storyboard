@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mZQ-IM-IOt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                                     <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Jcs-EO-fhJ" kind="show" id="lLB-sv-hHn"/>
+                                    <segue destination="Jcs-EO-fhJ" kind="show" identifier="goToLogin" id="lLB-sv-hHn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -63,11 +63,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="Zf3-f4-7E8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="56.221889055472268"/>
         </scene>
-        <!--Log In View Controller-->
+        <!--Login-->
         <scene sceneID="w0l-Gp-XgY">
             <objects>
                 <viewController id="Jcs-EO-fhJ" customClass="LogInViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yw-KX-LRz" userLabel="Container View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="284"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="284"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytX-gS-4db">
                                         <rect key="frame" x="16" y="89" width="343" height="30"/>
@@ -137,12 +139,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wT9-b2-dd3"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" id="bDc-Is-YeY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGx-7T-8q0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="-366"/>
+            <point key="canvasLocation" x="2480.8000000000002" y="-366.56671664167919"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Register-->
         <scene sceneID="PHe-Hd-RvX">
             <objects>
                 <viewController id="gT1-6b-wEx" customClass="RegisterViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldf-eK-juX" userLabel="ContainerView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="284"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="284"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMx-KT-y6W">
                                         <rect key="frame" x="16" y="89" width="343" height="30"/>
@@ -212,10 +215,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lhU-sK-oET"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Register" id="adh-JI-aWs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ga3-uB-Mw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="339"/>
+            <point key="canvasLocation" x="2479.1999999999998" y="338.68065967016497"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k3y-g9-RGl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mZQ-IM-IOt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D07-sL-pyZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ugl-z0-ZST"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="roG-bw-dqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86" y="56"/>
         </scene>
     </scenes>
     <resources>
