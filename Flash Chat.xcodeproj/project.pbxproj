@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		67B8AC2C362F83F1B8AD0DF3 /* Pods_Flash_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7C11CCB4F3569E92736EF8 /* Pods_Flash_Chat.framework */; };
 		FA253100224815F900D51C61 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2530FF224815F900D51C61 /* ChatViewController.swift */; };
+		FA2531062248337B00D51C61 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2531042248337B00D51C61 /* CustomMessageCell.swift */; };
+		FA2531072248337B00D51C61 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2531052248337B00D51C61 /* MessageCell.xib */; };
 		FA372DD42246BF90009A6020 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA372DD32246BF90009A6020 /* RegisterViewController.swift */; };
 		FA372DD62246C260009A6020 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA372DD52246C260009A6020 /* LogInViewController.swift */; };
 		FA3B186D224412A100ABF76D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B186C224412A100ABF76D /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 		8A4D5C63FE567AE3169D3C8E /* Pods-Flash Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat.debug.xcconfig"; path = "Target Support Files/Pods-Flash Chat/Pods-Flash Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7C11CCB4F3569E92736EF8 /* Pods_Flash_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2530FF224815F900D51C61 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		FA2531042248337B00D51C61 /* CustomMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
+		FA2531052248337B00D51C61 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		FA372DD32246BF90009A6020 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FA372DD52246C260009A6020 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FA3B1869224412A100ABF76D /* Flash Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flash Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,15 @@
 				FAF5D3E8926C3F214E9F04EB /* Pods-Flash Chat.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA2531032248332700D51C61 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA2531042248337B00D51C61 /* CustomMessageCell.swift */,
+				FA2531052248337B00D51C61 /* MessageCell.xib */,
+			);
+			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 		FA3B1860224412A100ABF76D = {
@@ -106,6 +119,7 @@
 			children = (
 				FA3B1870224412A100ABF76D /* Main.storyboard */,
 				FA3B1875224412A300ABF76D /* LaunchScreen.storyboard */,
+				FA2531032248332700D51C61 /* Custom Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +209,7 @@
 				FA3B1877224412A300ABF76D /* LaunchScreen.storyboard in Resources */,
 				FA3B18832245452F00ABF76D /* GoogleService-Info.plist in Resources */,
 				FA3B1874224412A300ABF76D /* Assets.xcassets in Resources */,
+				FA2531072248337B00D51C61 /* MessageCell.xib in Resources */,
 				FA3B1872224412A100ABF76D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2531062248337B00D51C61 /* CustomMessageCell.swift in Sources */,
 				FA372DD62246C260009A6020 /* LogInViewController.swift in Sources */,
 				FA372DD42246BF90009A6020 /* RegisterViewController.swift in Sources */,
 				FA3B186F224412A100ABF76D /* WelcomeViewController.swift in Sources */,
