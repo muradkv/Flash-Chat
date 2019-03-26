@@ -110,6 +110,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="Jcs-EO-fhJ" eventType="touchUpInside" id="uLI-Nr-BZk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -140,6 +143,10 @@
                         <viewLayoutGuide key="safeArea" id="wT9-b2-dd3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="bDc-Is-YeY"/>
+                    <connections>
+                        <outlet property="emailTextfield" destination="ytX-gS-4db" id="R34-IB-AEm"/>
+                        <outlet property="passwordTextfield" destination="kzN-73-A9Z" id="Y1e-qM-Kaw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGx-7T-8q0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
