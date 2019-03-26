@@ -112,6 +112,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginPressed:" destination="Jcs-EO-fhJ" eventType="touchUpInside" id="uLI-Nr-BZk"/>
+                                            <segue destination="WAn-ip-bZJ" kind="show" identifier="goToChat" id="gVd-Rd-mOR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -343,4 +344,7 @@
         <image name="background" width="1280" height="949"/>
         <image name="background1" width="1800" height="1192.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gVd-Rd-mOR"/>
+    </inferredMetricsTieBreakers>
 </document>
