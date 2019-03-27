@@ -19,6 +19,7 @@
 		FA3B1874224412A300ABF76D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3B1873224412A300ABF76D /* Assets.xcassets */; };
 		FA3B1877224412A300ABF76D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3B1875224412A300ABF76D /* LaunchScreen.storyboard */; };
 		FA3B18832245452F00ABF76D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3B18822245452F00ABF76D /* GoogleService-Info.plist */; };
+		FAECC59A224BDC1400FC7AF3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECC599224BDC1400FC7AF3 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		FA3B1876224412A300ABF76D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA3B1878224412A300ABF76D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3B18822245452F00ABF76D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAECC599224BDC1400FC7AF3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FAF5D3E8926C3F214E9F04EB /* Pods-Flash Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat.release.xcconfig"; path = "Target Support Files/Pods-Flash Chat/Pods-Flash Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 		FA3B187E224413A000ABF76D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAECC599224BDC1400FC7AF3 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				FA3B186F224412A100ABF76D /* WelcomeViewController.swift in Sources */,
 				FA253100224815F900D51C61 /* ChatViewController.swift in Sources */,
 				FA3B186D224412A100ABF76D /* AppDelegate.swift in Sources */,
+				FAECC59A224BDC1400FC7AF3 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
