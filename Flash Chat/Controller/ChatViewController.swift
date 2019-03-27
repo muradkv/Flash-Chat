@@ -26,6 +26,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         messageTableView.dataSource = self
         messageTextField.delegate = self
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector (tableViewTapped))
+        messageTableView.addGestureRecognizer(tapGesture)
+        
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
         configureTableView()
     }
@@ -53,6 +56,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureTableView() {
         messageTableView.rowHeight = UITableView.automaticDimension
         messageTableView.estimatedRowHeight = 120.0
+    }
+    
+    @objc func tableViewTapped() {
+        messageTextField.endEditing(true)
     }
     
     ///////////////////////////////////////////
