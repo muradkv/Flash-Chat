@@ -9,11 +9,12 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         messageTableView.delegate = self
         messageTableView.dataSource = self
+        messageTextField.delegate = self
         
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
         configureTableView()
@@ -51,6 +53,27 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureTableView() {
         messageTableView.rowHeight = UITableView.automaticDimension
         messageTableView.estimatedRowHeight = 120.0
+    }
+    
+    ///////////////////////////////////////////
+    
+    //MARK: - TextField Delegate Methods
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 308
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.heightConstraint.constant = 50
+            self.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {

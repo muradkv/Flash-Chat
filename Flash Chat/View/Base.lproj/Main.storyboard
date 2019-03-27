@@ -228,6 +228,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="heightConstraint" destination="6Yz-VO-27b" id="Qya-rf-cCs"/>
                         <outlet property="messageTableView" destination="xkE-zX-th5" id="DWn-gI-w25"/>
                         <outlet property="messageTextField" destination="stN-h6-9Mf" id="Cnx-5r-bsq"/>
                         <outlet property="sendButton" destination="ob6-dC-wsV" id="6Az-tv-gBe"/>
