@@ -112,7 +112,6 @@
                                         </state>
                                         <connections>
                                             <action selector="loginPressed:" destination="Jcs-EO-fhJ" eventType="touchUpInside" id="uLI-Nr-BZk"/>
-                                            <segue destination="WAn-ip-bZJ" kind="show" identifier="goToChat" id="gVd-Rd-mOR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -147,6 +146,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="ytX-gS-4db" id="R34-IB-AEm"/>
                         <outlet property="passwordTextfield" destination="kzN-73-A9Z" id="Y1e-qM-Kaw"/>
+                        <segue destination="WAn-ip-bZJ" kind="show" identifier="goToChat" id="y0h-qW-FhH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGx-7T-8q0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,10 +165,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="kyv-gY-GT8" customClass="CustomMessageCell" customModule="Flash_Chat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customMessageCell" id="kyv-gY-GT8" customClass="CustomMessageCell" customModule="Flash_Chat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kyv-gY-GT8" id="Ajc-NC-yoe">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kyv-gY-GT8" id="Ajc-NC-yoe" customClass="CustomMessageCell" customModule="Flash_Chat" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -281,7 +281,6 @@
                                         </state>
                                         <connections>
                                             <action selector="registerPressed:" destination="gT1-6b-wEx" eventType="touchUpInside" id="srG-iU-xmx"/>
-                                            <segue destination="WAn-ip-bZJ" kind="show" identifier="goToChat" id="tPu-Rl-gVg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -316,6 +315,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="bMx-KT-y6W" id="p4O-wq-Nsz"/>
                         <outlet property="passwordTextfield" destination="4Sy-9K-Bit" id="bT3-kJ-8Ye"/>
+                        <segue destination="WAn-ip-bZJ" kind="show" identifier="goToChat" id="xvE-au-9QV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ga3-uB-Mw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,6 +346,6 @@
         <image name="background1" width="1800" height="1192.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gVd-Rd-mOR"/>
+        <segue reference="xvE-au-9QV"/>
     </inferredMetricsTieBreakers>
 </document>
