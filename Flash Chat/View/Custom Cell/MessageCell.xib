@@ -12,31 +12,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customMessageCell" rowHeight="51" id="KGk-i7-Jjw" customClass="CustomMessageCell" customModule="Flash_Chat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customMessageCell" rowHeight="82" id="KGk-i7-Jjw" userLabel="customMessageCell" customClass="CustomMessageCell" customModule="Flash_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="CustomMessageCell" customModule="Flash_Chat" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVW-Lf-jbp" userLabel="Avatar Image View">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mar-0k-Gl4">
                         <rect key="frame" x="0.0" y="10" width="53" height="53"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="53" id="T1t-1W-PyR"/>
-                            <constraint firstAttribute="width" constant="53" id="bzd-Fw-V1r"/>
+                            <constraint firstAttribute="width" constant="53" id="YXw-0q-JDW"/>
+                            <constraint firstAttribute="height" constant="53" id="efb-IJ-Uvf"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzd-S7-Ecp" userLabel="Message Background">
-                        <rect key="frame" x="59" y="10" width="251" height="60.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIJ-1N-Vta">
+                        <rect key="frame" x="59" y="10" width="251" height="111.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVN-v6-me3" userLabel="Sender Username">
-                                <rect key="frame" x="9" y="0.0" width="242" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGr-gz-BMO">
+                                <rect key="frame" x="6" y="0.0" width="245" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TK0-41-6Ib" userLabel="Message Body">
-                                <rect key="frame" x="9" y="16.5" width="242" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJ5-Rv-0vP">
+                                <rect key="frame" x="6" y="19" width="245" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -44,32 +43,39 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TK0-41-6Ib" firstAttribute="top" secondItem="CVN-v6-me3" secondAttribute="bottom" constant="2" id="0Ph-sN-NTL"/>
-                            <constraint firstItem="CVN-v6-me3" firstAttribute="top" secondItem="Kzd-S7-Ecp" secondAttribute="top" id="18w-AX-rlU"/>
-                            <constraint firstAttribute="trailing" secondItem="TK0-41-6Ib" secondAttribute="trailing" id="CRf-Sl-vCR"/>
-                            <constraint firstItem="TK0-41-6Ib" firstAttribute="leading" secondItem="Kzd-S7-Ecp" secondAttribute="leading" constant="9" id="QGk-6A-DWK"/>
-                            <constraint firstAttribute="trailing" secondItem="CVN-v6-me3" secondAttribute="trailing" id="dJg-AM-Pjy"/>
-                            <constraint firstItem="CVN-v6-me3" firstAttribute="leading" secondItem="Kzd-S7-Ecp" secondAttribute="leading" constant="9" id="w3N-Zd-pgF"/>
+                            <constraint firstItem="OJ5-Rv-0vP" firstAttribute="leading" secondItem="HIJ-1N-Vta" secondAttribute="leading" constant="6" id="J9R-0m-qbs"/>
+                            <constraint firstAttribute="trailing" secondItem="XGr-gz-BMO" secondAttribute="trailing" id="MSE-XK-4kc"/>
+                            <constraint firstAttribute="trailing" secondItem="OJ5-Rv-0vP" secondAttribute="trailing" id="Ont-Tx-Kw0"/>
+                            <constraint firstItem="OJ5-Rv-0vP" firstAttribute="top" secondItem="XGr-gz-BMO" secondAttribute="bottom" constant="2" id="b2a-Jt-zdk"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OJ5-Rv-0vP" secondAttribute="bottom" constant="10" id="osq-ZC-t00"/>
+                            <constraint firstItem="XGr-gz-BMO" firstAttribute="top" secondItem="HIJ-1N-Vta" secondAttribute="top" id="ucs-mg-GHM"/>
+                            <constraint firstItem="XGr-gz-BMO" firstAttribute="leading" secondItem="HIJ-1N-Vta" secondAttribute="leading" constant="6" id="xQs-mj-jdU"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Kzd-S7-Ecp" firstAttribute="leading" secondItem="NVW-Lf-jbp" secondAttribute="trailing" constant="6" id="1AL-D8-s1k"/>
-                    <constraint firstAttribute="trailing" secondItem="Kzd-S7-Ecp" secondAttribute="trailing" constant="10" id="AIh-wy-DP7"/>
-                    <constraint firstItem="NVW-Lf-jbp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ok9-ZS-BCm"/>
-                    <constraint firstItem="Kzd-S7-Ecp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Y2l-sN-jWQ"/>
-                    <constraint firstItem="NVW-Lf-jbp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="exR-76-Eao"/>
-                    <constraint firstAttribute="bottom" secondItem="Kzd-S7-Ecp" secondAttribute="bottom" constant="10" id="jgM-gV-cNJ"/>
+                    <constraint firstItem="Mar-0k-Gl4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5KV-Ft-l5I"/>
+                    <constraint firstItem="Mar-0k-Gl4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="H7P-rz-iv7"/>
+                    <constraint firstItem="HIJ-1N-Vta" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Jmz-xj-bfW"/>
+                    <constraint firstAttribute="bottom" secondItem="HIJ-1N-Vta" secondAttribute="bottom" constant="10" id="Lej-Nu-AaR"/>
+                    <constraint firstAttribute="bottom" secondItem="HIJ-1N-Vta" secondAttribute="bottom" constant="10" id="lyF-to-1nG"/>
+                    <constraint firstAttribute="trailing" secondItem="HIJ-1N-Vta" secondAttribute="trailing" constant="10" id="u8d-gJ-YVe"/>
+                    <constraint firstItem="HIJ-1N-Vta" firstAttribute="leading" secondItem="Mar-0k-Gl4" secondAttribute="trailing" constant="6" id="udg-j8-M8U"/>
                 </constraints>
+                <viewLayoutGuide key="safeArea" id="79X-XJ-ua2"/>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="avatarImageView" destination="NVW-Lf-jbp" id="ug7-5z-SGh"/>
-                <outlet property="messageBackground" destination="Kzd-S7-Ecp" id="4a6-ch-ffN"/>
-                <outlet property="messageBody" destination="TK0-41-6Ib" id="E2h-ge-3jo"/>
-                <outlet property="senderUserName" destination="CVN-v6-me3" id="GNT-tj-csR"/>
+                <outlet property="avatarImageView" destination="Mar-0k-Gl4" id="3Dd-xs-zP5"/>
+                <outlet property="messageBody" destination="OJ5-Rv-0vP" id="iFt-4f-iHO"/>
+                <outlet property="senderUserName" destination="XGr-gz-BMO" id="QSj-C3-FBA"/>
             </connections>
-            <point key="canvasLocation" x="52.799999999999997" y="73.313343328335833"/>
+            <point key="canvasLocation" x="137.59999999999999" y="224.88755622188907"/>
         </tableViewCell>
     </objects>
 </document>
