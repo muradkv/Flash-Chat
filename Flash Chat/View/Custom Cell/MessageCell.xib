@@ -72,6 +72,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarImageView" destination="Mar-0k-Gl4" id="3Dd-xs-zP5"/>
+                <outlet property="messageBackground" destination="HIJ-1N-Vta" id="fWh-No-Rxl"/>
                 <outlet property="messageBody" destination="OJ5-Rv-0vP" id="iFt-4f-iHO"/>
                 <outlet property="senderUserName" destination="XGr-gz-BMO" id="QSj-C3-FBA"/>
             </connections>
