@@ -7,12 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController {
+    
+    let welcomeView = WelcomeView()
+    
+    override func loadView() {
+        view = welcomeView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .red
+        //view.backgroundColor = .systemBackground
     }
 
 
