@@ -7,7 +7,30 @@
 
 import UIKit
 
-class RegisterView: UIView {
+enum AuthType {
+    case login
+    case register
+    
+    var buttonTitle: String {
+        switch self {
+        case .login:
+            return "Login"
+        case .register:
+            return "Register"
+        }
+    }
+    
+    var backgroundColor: UIColor {
+        switch self {
+        case .login:
+            return UIColor(red: 42 / 255, green: 199 / 255, blue: 254 / 255, alpha: 1)
+        case .register:
+            return .brandLightBlue
+        }
+    }
+}
+
+class AuthView: UIView {
     
     //MARK: - Properties
     
@@ -68,10 +91,9 @@ class RegisterView: UIView {
         return textField
     }()
     
-    private let registerButton: UIButton = {
+    private let actionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Register", for: .normal)
         button.backgroundColor = .brandLightBlue
         button.setTitleColor(.tintColor, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
@@ -84,7 +106,11 @@ class RegisterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+    }
+    
+    convenience init(authType: AuthType) {
+        self.init()
+        setupView(authType: authType)
         setupButton()
     }
     
@@ -94,10 +120,11 @@ class RegisterView: UIView {
     
     //MARK: - Methods
     
-    private func setupView() {
-        backgroundColor = .brandLightBlue
+    private func setupView(authType: AuthType) {
+        backgroundColor = authType.backgroundColor
+        actionButton.setTitle(authType.buttonTitle, for: .normal)
         
-        [areaTextFieldView, registerButton].forEach { view in
+        [areaTextFieldView, actionButton].forEach { view in
             addSubview(view)
         }
         
@@ -122,18 +149,18 @@ class RegisterView: UIView {
             passwordTextfield.leadingAnchor.constraint(equalTo: emailTextfield.leadingAnchor),
             passwordTextfield.trailingAnchor.constraint(equalTo: emailTextfield.trailingAnchor),
             
-            registerButton.topAnchor.constraint(equalTo: areaTextFieldView.bottomAnchor, constant: 30),
-            registerButton.heightAnchor.constraint(equalToConstant: 60),
-            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            actionButton.topAnchor.constraint(equalTo: areaTextFieldView.bottomAnchor, constant: 30),
+            actionButton.heightAnchor.constraint(equalToConstant: 60),
+            actionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            actionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
         ])
     }
     
     private func setupButton() {
-        registerButton.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
+        actionButton.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
     }
     
-    @objc private func registerTapped() {
+    @objc private func actionTapped() {
         print("register tapped")
     }
 }

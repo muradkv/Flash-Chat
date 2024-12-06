@@ -11,7 +11,7 @@ final class RegisterViewController: UIViewController {
     
     //MARK: - Properties
     
-    private let registerView = RegisterView()
+    private let registerView = AuthView(authType: .login)
     
     //MARK: - Life cycle
     
