@@ -30,6 +30,10 @@ enum AuthType {
     }
 }
 
+protocol AuthViewDelegate: AnyObject {
+    func didActionButtonTapped(_ sender: UIButton)
+}
+
 class AuthView: UIView {
     
     //MARK: - Properties
@@ -102,6 +106,8 @@ class AuthView: UIView {
         return button
     }()
     
+    weak var delegate: AuthViewDelegate?
+    
     //MARK: - Initialization
     
     override init(frame: CGRect) {
@@ -161,6 +167,7 @@ class AuthView: UIView {
     }
     
     @objc private func actionTapped() {
-        print("register tapped")
+        print("action tapped")
+        delegate?.didActionButtonTapped(actionButton)
     }
 }

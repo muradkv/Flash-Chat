@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol WelcomeViewDelegate: AnyObject {
+    func didLoginButtonTapped(_ sender: UIButton)
+    func didRegisterButtonTapped(_ sender: UIButton)
+}
+
 class WelcomeView: UIView {
     
     //MARK: - Properties
@@ -42,6 +47,8 @@ class WelcomeView: UIView {
         label.textColor = .brandBlue
         return label
     }()
+    
+    weak var delegate: WelcomeViewDelegate?
         
     //MARK: - Initialization
     
@@ -87,9 +94,11 @@ class WelcomeView: UIView {
     
     @objc private func registerTapped() {
         print("register tapped")
+        delegate?.didRegisterButtonTapped(registerButton)
     }
     
     @objc private func loginTapped() {
         print("login tapped")
+        delegate?.didLoginButtonTapped(loginButton)
     }
 }
