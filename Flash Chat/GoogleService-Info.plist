@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBG3ZN0lzK7KLw7du6vPkFEt3bHjy5wuCE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>880607359777</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>murad-kv.Flash-Chat</string>
+	<key>PROJECT_ID</key>
+	<string>flash-chat-2024-27aa3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flash-chat-2024-27aa3.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:880607359777:ios:3ff4ed927705bba8e68460</string>
+</dict>
+</plist>
