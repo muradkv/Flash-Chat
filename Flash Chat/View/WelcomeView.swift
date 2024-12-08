@@ -41,7 +41,6 @@ class WelcomeView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "⚡️ Flash Chat"
         label.font = UIFont.systemFont(ofSize: 50, weight: .black)
         label.textAlignment = .center
         label.textColor = .brandBlue
@@ -56,6 +55,7 @@ class WelcomeView: UIView {
         super.init(frame: frame)
         setupView()
         setupButton()
+        animateTitle()
     }
     
     required init?(coder: NSCoder) {
@@ -85,6 +85,19 @@ class WelcomeView: UIView {
             registerButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor),
             registerButton.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -20)
         ])
+    }
+    
+    private func animateTitle() {
+        titleLabel.text = "" 
+        let titleText = "⚡️FlashChat"
+        var charIndex = 0.0
+        
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.15 * charIndex, repeats: false) { timer in
+                self.titleLabel.text?.append(letter)
+            }
+            charIndex += 1
+        }
     }
     
     private func setupButton() {
