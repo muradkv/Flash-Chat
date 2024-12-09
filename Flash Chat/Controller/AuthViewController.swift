@@ -43,27 +43,6 @@ final class AuthViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-    
-    private func handleAuthError(_ error: Error) -> String {
-        // Пытаемся привести ошибку к NSError
-        guard let nsError = error as NSError?, nsError.domain == AuthErrorDomain else {
-            return "Не удалось зарегистрироваться. Попробуйте еще раз (неизвестная ошибка)."
-        }
-        
-        // Извлекаем код ошибки из NSError и обрабатываем ошибку
-        guard let authErrorCode = AuthErrorCode(rawValue: nsError.code) else {
-            return "Не удалось зарегистрироваться. Неизвестный код ошибки Auth."
-        }
-        
-        switch authErrorCode {
-        case .emailAlreadyInUse:
-            return "Этот email уже зарегистрирован."
-        case .weakPassword:
-            return "Пароль должен состоять из не менее 6 символов"
-        default:
-            return "Не удалось зарегистрироваться. Попробуйте еще раз. Ошибка: \(authErrorCode)"
-        }
-    }
 }
 
 extension AuthViewController: AuthViewDelegate {
@@ -78,20 +57,20 @@ extension AuthViewController: AuthViewDelegate {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+        AuthService.shared.registerUser(email: email, password: password) { [weak self] result in
             
             guard let self = self else {
                 return
             }
             
-            guard error == nil else {
-                let errorMessage = handleAuthError(error!)
+            switch result {
+            case .success(_):
+                let chatVC = ChatViewController()
+                self.navigationController?.pushViewController(chatVC, animated: true)
+            case .failure(let error):
+                let errorMessage = AuthService.shared.handleAuthError(error)
                 self.showError(message: errorMessage)
-                return
             }
-            
-            let chatVC = ChatViewController()
-            self.navigationController?.pushViewController(chatVC, animated: true)
         }
     }
 }
