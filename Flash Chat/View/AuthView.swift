@@ -31,7 +31,7 @@ enum AuthType {
 }
 
 protocol AuthViewDelegate: AnyObject {
-    func didActionButtonTapped(_ sender: UIButton)
+    func didActionButtonTapped(_ sender: UIButton, emailText: UITextField, passwordText: UITextField)
 }
 
 class AuthView: UIView {
@@ -168,6 +168,6 @@ class AuthView: UIView {
     
     @objc private func actionTapped() {
         print("action tapped")
-        delegate?.didActionButtonTapped(actionButton)
+        delegate?.didActionButtonTapped(actionButton, emailText: emailTextfield, passwordText: passwordTextfield)
     }
 }
