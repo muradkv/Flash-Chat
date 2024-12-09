@@ -57,19 +57,33 @@ extension AuthViewController: AuthViewDelegate {
             return
         }
         
-        AuthService.shared.registerUser(email: email, password: password) { [weak self] result in
-            
-            guard let self = self else {
-                return
+        if let register = sender.titleLabel?.text, register == "Register" {
+            AuthService.shared.registerUser(email: email, password: password) { [weak self] result in
+                
+                guard let self = self else { return }
+                
+                switch result {
+                case .success(_):
+                    let chatVC = ChatViewController()
+                    self.navigationController?.pushViewController(chatVC, animated: true)
+                case .failure(let error):
+                    let errorMessage = AuthService.shared.handleAuthError(error)
+                    self.showError(message: errorMessage)
+                }
             }
-            
-            switch result {
-            case .success(_):
-                let chatVC = ChatViewController()
-                self.navigationController?.pushViewController(chatVC, animated: true)
-            case .failure(let error):
-                let errorMessage = AuthService.shared.handleAuthError(error)
-                self.showError(message: errorMessage)
+        } else {
+            AuthService.shared.loginUser(email: email, password: password) { [weak self] result in
+                
+                guard let self = self else { return }
+                
+                switch result {
+                case .success():
+                    let chatVC = ChatViewController()
+                    self.navigationController?.pushViewController(chatVC, animated: true)
+                case .failure(let error):
+                    let errorMessage = AuthService.shared.handleAuthError(error)
+                    self.showError(message: errorMessage)
+                }
             }
         }
     }

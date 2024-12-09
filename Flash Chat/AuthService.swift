@@ -23,24 +23,38 @@ class AuthService {
         }
     }
     
+    func loginUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     func handleAuthError(_ error: Error) -> String {
         // Пытаемся привести ошибку к NSError
         guard let nsError = error as NSError?, nsError.domain == AuthErrorDomain else {
-            return "Не удалось зарегистрироваться. Попробуйте еще раз (неизвестная ошибка)."
+            return "Попробуйте еще раз (неизвестная ошибка)"
         }
         
         // Извлекаем код ошибки из NSError и обрабатываем ошибку
         guard let authErrorCode = AuthErrorCode(rawValue: nsError.code) else {
-            return "Не удалось зарегистрироваться. Неизвестный код ошибки Auth."
+            return "Неизвестный код ошибки Auth"
         }
         
         switch authErrorCode {
         case .emailAlreadyInUse:
-            return "Этот email уже зарегистрирован."
+            return "Этот email уже зарегистрирован"
         case .weakPassword:
             return "Пароль должен состоять из не менее 6 символов"
+        case .invalidEmail:
+            return "Указан неверный адрес электронной почты"
+        case .invalidCredential:
+            return "Адрес электронной почты не зарегистрирован или указан неверный пароль"
         default:
-            return "Не удалось зарегистрироваться. Попробуйте еще раз. Ошибка: \(authErrorCode)"
+            return "Попробуйте еще раз. Ошибка: \(authErrorCode)"
         }
     }
 }
