@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class ChatViewController: UIViewController {
+final class ChatViewController: UIViewController {
     
     //MARK: - Properties
     
-    let chatView = ChatView()
+    private let chatView = ChatView()
     
     //MARK: - Life cycle
     
@@ -21,5 +22,29 @@ class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBarButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+    }
+    
+    //MARK: - Methods
+    
+    private func setupBarButtonItem() {
+        let logoutBarButton = UIBarButtonItem(title: "Log out", style: .done, target: self, action: #selector(barButtonTapped))
+        navigationItem.rightBarButtonItem = logoutBarButton
+        
+        navigationItem.title = "⚡️FlashChat"
+    }
+    
+    @objc func barButtonTapped() {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
 }
