@@ -36,7 +36,7 @@ final class ChatViewController: UIViewController {
         let logoutBarButton = UIBarButtonItem(title: "Log out", style: .done, target: self, action: #selector(barButtonTapped))
         navigationItem.rightBarButtonItem = logoutBarButton
         
-        navigationItem.title = "⚡️FlashChat"
+        navigationItem.title = K.appName
     }
     
     @objc func barButtonTapped() {
