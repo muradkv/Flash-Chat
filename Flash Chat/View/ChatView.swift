@@ -13,6 +13,9 @@ class ChatView: UIView {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -102,5 +105,13 @@ class ChatView: UIView {
     
     @objc private func sendTapped() {
         print("send tapped")
+    }
+    
+    func setTableViewDelegate(_ delegate: UITableViewDelegate) {
+        tableView.delegate = delegate
+    }
+    
+    func setTableViewDataSource(_ dataSource: UITableViewDataSource) {
+        tableView.dataSource = dataSource
     }
 }

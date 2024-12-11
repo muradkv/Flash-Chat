@@ -13,6 +13,11 @@ final class ChatViewController: UIViewController {
     //MARK: - Properties
     
     private let chatView = ChatView()
+    private let messages: [Message] = [
+        Message(sender: "1@2.com", body: "Hello moto moto"),
+        Message(sender: "1@3.com", body: "Oh yes is it you"),
+        Message(sender: "1@1.com", body: "Makhachkala")
+    ]
     
     //MARK: - Life cycle
     
@@ -23,6 +28,8 @@ final class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarButtonItem()
+        chatView.setTableViewDelegate(self)
+        chatView.setTableViewDataSource(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,4 +54,22 @@ final class ChatViewController: UIViewController {
             print("Error signing out: %@", signOutError)
         }
     }
+}
+
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = messages[indexPath.row].body
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+    
+    
 }
