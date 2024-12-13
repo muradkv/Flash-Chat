@@ -13,7 +13,7 @@ class ChatView: UIView {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
+        tableView.register(MessageCell.self, forCellReuseIdentifier: "defaultCell")
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         return tableView
