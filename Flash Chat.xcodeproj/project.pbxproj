@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA167C312D0D21DF006B3908 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA167C302D0D21DF006B3908 /* FirebaseFirestore */; };
 		FAB60CCD2D060E81003B817A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAB60CCC2D060E81003B817A /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB60CCD2D060E81003B817A /* FirebaseAuth in Frameworks */,
+				FA167C312D0D21DF006B3908 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = "Flash Chat";
 			packageProductDependencies = (
 				FAB60CCC2D060E81003B817A /* FirebaseAuth */,
+				FA167C302D0D21DF006B3908 /* FirebaseFirestore */,
 			);
 			productName = "Flash Chat";
 			productReference = FA2DF2172D012D15004F243F /* Flash Chat.app */;
@@ -361,6 +364,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA167C302D0D21DF006B3908 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB60CCB2D060E81003B817A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		FAB60CCC2D060E81003B817A /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAB60CCB2D060E81003B817A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

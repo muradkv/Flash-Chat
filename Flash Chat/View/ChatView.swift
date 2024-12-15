@@ -6,6 +6,10 @@
 //
 import UIKit
 
+protocol ChatViewDelegate: AnyObject {
+    func didSendButtonTapped(_ sender: UIButton, text: UITextField)
+}
+
 class ChatView: UIView {
     
     //MARK: - Properties
@@ -50,6 +54,8 @@ class ChatView: UIView {
         button.tintColor = .brandLightPurple
         return button
     }()
+    
+    weak var delegate: ChatViewDelegate?
     
     //MARK: - Initialization
     
@@ -105,6 +111,7 @@ class ChatView: UIView {
     
     @objc private func sendTapped() {
         print("send tapped")
+        delegate?.didSendButtonTapped(sendButton, text: messageTextField)
     }
     
     func setTableViewDelegate(_ delegate: UITableViewDelegate) {

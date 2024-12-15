@@ -7,17 +7,20 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
-final class ChatViewController: UIViewController {
+final class ChatViewController: UIViewController, ChatViewDelegate {
     
     //MARK: - Properties
     
     private let chatView = ChatView()
-    private let messages: [Message] = [
+    private var messages: [Message] = [
         Message(sender: "1@2.com", body: "Hello moto moto"),
         Message(sender: "1@3.com", body: "Oh yes is it you. А теперь перейдем на русский малышка. Знаешь что? пАшел вон такая гхад"),
         Message(sender: "1@1.com", body: "Makhachkala")
     ]
+    
+    let db = Firestore.firestore()
     
     //MARK: - Life cycle
     
@@ -30,6 +33,7 @@ final class ChatViewController: UIViewController {
         setupBarButtonItem()
         chatView.setTableViewDelegate(self)
         chatView.setTableViewDataSource(self)
+        chatView.delegate = self 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +56,23 @@ final class ChatViewController: UIViewController {
             navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func didSendButtonTapped(_ sender: UIButton, text: UITextField) {
+        if let messageBody = text.text, let messageSender = Auth.auth().currentUser?.email {
+            
+            db.collection(K.FStore.collectionName).addDocument(data: [
+                K.FStore.senderField: messageSender,
+                K.FStore.bodyField: messageBody
+            ]) { error in
+                if let e = error {
+                    print("There was an issue saving data")
+                } else {
+                    print("Successfully saved data")
+                }
+            }
+            
         }
     }
 }
