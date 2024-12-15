@@ -121,4 +121,8 @@ class ChatView: UIView {
     func setTableViewDataSource(_ dataSource: UITableViewDataSource) {
         tableView.dataSource = dataSource
     }
+    
+    func tableViewReload() {
+        tableView.reloadData()
+    }
 }

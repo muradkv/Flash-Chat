@@ -27,13 +27,14 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
     override func loadView() {
         view = chatView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarButtonItem()
         chatView.setTableViewDelegate(self)
         chatView.setTableViewDataSource(self)
-        chatView.delegate = self 
+        chatView.delegate = self
+        loadMessages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,15 +60,50 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
         }
     }
     
+    private func loadMessages() {
+        
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { querySnapshot, error in
+            
+            self.messages = []
+            
+            guard error == nil else {
+                print("There was an issue retrieving data from Firestore. \(String(describing: error))")
+                return
+            }
+            
+            guard let snapshotDocuments = querySnapshot?.documents else {
+                return
+            }
+            
+            for doc in snapshotDocuments {
+                let doc = doc.data()
+                
+                guard let sender = doc[K.FStore.senderField] as? String,
+                      let messageBody = doc[K.FStore.bodyField] as? String
+                else { return }
+                
+                let newMessage = Message(sender: sender, body: messageBody)
+                self.messages.append(newMessage)
+                
+                DispatchQueue.main.async {
+                    self.chatView.tableViewReload()
+                }
+            }
+        }
+    }
+    
     func didSendButtonTapped(_ sender: UIButton, text: UITextField) {
         if let messageBody = text.text, let messageSender = Auth.auth().currentUser?.email {
             
             db.collection(K.FStore.collectionName).addDocument(data: [
                 K.FStore.senderField: messageSender,
-                K.FStore.bodyField: messageBody
+                K.FStore.bodyField: messageBody,
+                K.FStore.dateField: Date().timeIntervalSince1970
             ]) { error in
                 if let e = error {
-                    print("There was an issue saving data")
+                    print("There was an issue saving data. \(e)")
                 } else {
                     print("Successfully saved data")
                 }
