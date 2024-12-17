@@ -49,6 +49,7 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
         navigationItem.rightBarButtonItem = logoutBarButton
         
         navigationItem.title = K.appName
+        navigationController?.navigationBar.barTintColor = .brandPurple
     }
     
     @objc func barButtonTapped() {

@@ -42,6 +42,8 @@ class ChatView: UIView {
         textField.returnKeyType = .send
         textField.autocapitalizationType = .sentences
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
         
         return textField
     }()
