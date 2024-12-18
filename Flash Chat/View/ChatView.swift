@@ -7,7 +7,7 @@
 import UIKit
 
 protocol ChatViewDelegate: AnyObject {
-    func didSendButtonTapped(_ sender: UIButton, text: UITextField)
+    func didSendButtonTapped(_ sender: UIButton, textField: UITextField)
 }
 
 class ChatView: UIView {
@@ -113,7 +113,7 @@ class ChatView: UIView {
     
     @objc private func sendTapped() {
         print("send tapped")
-        delegate?.didSendButtonTapped(sendButton, text: messageTextField)
+        delegate?.didSendButtonTapped(sendButton, textField: messageTextField)
     }
     
     func setTableViewDelegate(_ delegate: UITableViewDelegate) {
@@ -122,6 +122,10 @@ class ChatView: UIView {
     
     func setTableViewDataSource(_ dataSource: UITableViewDataSource) {
         tableView.dataSource = dataSource
+    }
+    
+    func setTextFieldDelegate(_ textField: UITextFieldDelegate) {
+        messageTextField.delegate = textField
     }
     
     func tableViewReload() {

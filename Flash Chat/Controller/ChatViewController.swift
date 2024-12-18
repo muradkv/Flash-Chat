@@ -34,6 +34,7 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
         chatView.setTableViewDelegate(self)
         chatView.setTableViewDataSource(self)
         chatView.delegate = self
+        chatView.setTextFieldDelegate(self)
         loadMessages()
     }
     
@@ -90,28 +91,75 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
                 
                 DispatchQueue.main.async {
                     self.chatView.tableViewReload()
-                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                    self.chatView.scrollTo(indexPath: indexPath)
+                    self.scrollToBottom()
                 }
             }
         }
     }
     
-    func didSendButtonTapped(_ sender: UIButton, text: UITextField) {
-        if let messageBody = text.text, let messageSender = Auth.auth().currentUser?.email {
-            
-            db.collection(K.FStore.collectionName).addDocument(data: [
-                K.FStore.senderField: messageSender,
-                K.FStore.bodyField: messageBody,
-                K.FStore.dateField: Date().timeIntervalSince1970
-            ]) { error in
-                if let e = error {
-                    print("There was an issue saving data. \(e)")
-                } else {
-                    print("Successfully saved data")
-                }
+    private func scrollToBottom() {
+        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+        self.chatView.scrollTo(indexPath: indexPath)
+    }
+    
+    func didSendButtonTapped(_ sender: UIButton, textField: UITextField) {
+        guard let text = textField.text, !text.isEmpty else {
+            return
+        }
+        
+        sendMessage(text: text) { success in
+            if success {
+                textField.text = ""
+                textField.endEditing(true)
             }
-            
+        }
+    }
+    
+    private func sendMessage(text: String, completion: @escaping (Bool) -> Void) {
+        guard let messageSender = Auth.auth().currentUser?.email else {
+            completion(false)
+            return
+        }
+        
+        let data: [String: Any] = [
+            K.FStore.senderField: messageSender,
+            K.FStore.bodyField: text,
+            K.FStore.dateField: Date().timeIntervalSince1970
+        ]
+        
+        db.collection(K.FStore.collectionName).addDocument(data: data) { error in
+            if let error = error {
+                print("Error saving data: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("Successfully saved data")
+                completion(true)
+            }
+        }
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension ChatViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text, !text.isEmpty else {
+            return false
+        }
+        
+        sendMessage(text: text) { success in
+            if success {
+                textField.text = ""
+                textField.endEditing(true)
+            }
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text, !text.isEmpty else {
+            return
         }
     }
 }
