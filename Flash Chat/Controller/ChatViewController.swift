@@ -50,6 +50,12 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
         navigationItem.rightBarButtonItem = logoutBarButton
         
         navigationItem.title = K.appName
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 25, weight: .black),
+            .foregroundColor: UIColor.white
+        ]
+        navigationController?.navigationBar.titleTextAttributes = attributes
+        
         navigationController?.navigationBar.barTintColor = .brandPurple
     }
     

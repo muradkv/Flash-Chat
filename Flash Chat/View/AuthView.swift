@@ -107,6 +107,7 @@ class AuthView: UIView {
     }()
     
     weak var delegate: AuthViewDelegate?
+    var authType = AuthType.login
     
     //MARK: - Initialization
     
@@ -116,6 +117,7 @@ class AuthView: UIView {
     
     convenience init(authType: AuthType) {
         self.init()
+        self.authType = authType
         setupView(authType: authType)
         setupButton()
     }

@@ -34,9 +34,18 @@ final class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         authView.delegate = self
+        configureNavBar()
     }
     
     //MARK: - Methods
+    
+    private func configureNavBar() {
+        if authView.authType == .login {
+            navigationController?.navigationBar.tintColor = .white
+        } else {
+            navigationController?.navigationBar.tintColor = .blue
+        }
+    }
     
     private func showError(message: String) {
         let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
