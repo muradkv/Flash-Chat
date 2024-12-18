@@ -88,11 +88,11 @@ class ChatView: UIView {
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomContainerView.topAnchor),
             
             bottomContainerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             bottomContainerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            bottomContainerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            bottomContainerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             bottomContainerView.heightAnchor.constraint(equalToConstant: 60),
             
             sendButton.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 20),
@@ -126,5 +126,9 @@ class ChatView: UIView {
     
     func tableViewReload() {
         tableView.reloadData()
+    }
+    
+    func scrollTo(indexPath: IndexPath) {
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 }

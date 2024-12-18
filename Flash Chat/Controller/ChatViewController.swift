@@ -90,6 +90,8 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
                 
                 DispatchQueue.main.async {
                     self.chatView.tableViewReload()
+                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                    self.chatView.scrollTo(indexPath: indexPath)
                 }
             }
         }
@@ -124,6 +126,14 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? MessageCell else {
             return UITableViewCell()
+        }
+        
+        let message = messages[indexPath.row]
+        
+        if message.sender == Auth.auth().currentUser?.email {
+            cell.stateMessages(from: .me)
+        } else {
+            cell.stateMessages(from: .anotherSender)
         }
         
         cell.configure(text: messages[indexPath.row].body)

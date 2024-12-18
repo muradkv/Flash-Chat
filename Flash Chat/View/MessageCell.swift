@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum MessageState {
+    case me
+    case anotherSender
+}
+
 final class MessageCell: UITableViewCell {
     
     //MARK: - Properties
@@ -24,7 +29,7 @@ final class MessageCell: UITableViewCell {
     private let leftImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "MeAvatar")
+        imageView.image = UIImage(named: "YouAvatar")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -32,7 +37,7 @@ final class MessageCell: UITableViewCell {
     private let rightImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "YouAvatar")
+        imageView.image = UIImage(named: "MeAvatar")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -101,5 +106,20 @@ final class MessageCell: UITableViewCell {
     
     func configureTable() {
         messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
+    }
+    
+    func stateMessages(from: MessageState) {
+        switch from {
+        case .me:
+            leftImageView.isHidden = true
+            rightImageView.isHidden = false
+            messageBubble.backgroundColor = .brandLightPurple
+            messageText.textColor = .brandPurple
+        case .anotherSender:
+            leftImageView.isHidden = false
+            rightImageView.isHidden = true
+            messageBubble.backgroundColor = .brandPurple
+            messageText.textColor = .brandLightPurple 
+        }
     }
 }
