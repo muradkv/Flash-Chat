@@ -169,7 +169,6 @@ class AuthView: UIView {
     }
     
     @objc private func actionTapped() {
-        print("action tapped")
         delegate?.didActionButtonTapped(actionButton, emailText: emailTextfield, passwordText: passwordTextfield)
     }
 }

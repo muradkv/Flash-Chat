@@ -112,7 +112,6 @@ class ChatView: UIView {
     }
     
     @objc private func sendTapped() {
-        print("send tapped")
         delegate?.didSendButtonTapped(sendButton, textField: messageTextField)
     }
     

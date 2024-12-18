@@ -14,11 +14,7 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
     //MARK: - Properties
     
     private let chatView = ChatView()
-    private var messages: [Message] = [
-        Message(sender: "1@2.com", body: "Hello moto moto"),
-        Message(sender: "1@3.com", body: "Oh yes is it you. А теперь перейдем на русский малышка. Знаешь что? пАшел вон такая гхад"),
-        Message(sender: "1@1.com", body: "Makhachkala")
-    ]
+    private var messages: [Message] = []
     
     let db = Firestore.firestore()
     
@@ -31,10 +27,7 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarButtonItem()
-        chatView.setTableViewDelegate(self)
-        chatView.setTableViewDataSource(self)
-        chatView.delegate = self
-        chatView.setTextFieldDelegate(self)
+        setupDelegates()
         loadMessages()
     }
     
@@ -142,6 +135,13 @@ final class ChatViewController: UIViewController, ChatViewDelegate {
                 completion(true)
             }
         }
+    }
+    
+    private func setupDelegates() {
+        chatView.setTableViewDelegate(self)
+        chatView.setTableViewDataSource(self)
+        chatView.delegate = self
+        chatView.setTextFieldDelegate(self)
     }
 }
 

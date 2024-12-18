@@ -106,12 +106,10 @@ class WelcomeView: UIView {
     }
     
     @objc private func registerTapped() {
-        print("register tapped")
         delegate?.didRegisterButtonTapped(registerButton)
     }
     
     @objc private func loginTapped() {
-        print("login tapped")
         delegate?.didLoginButtonTapped(loginButton)
     }
 }
